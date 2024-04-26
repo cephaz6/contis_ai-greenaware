@@ -19,18 +19,33 @@
     <div class="row justify-content-center">
       <div class="col-md-7 col-lg-6 col-xl-5">
         <div class="auth_card">
-          <form class="tf__blog_form">
+          <form
+            class="tf__blog_form"
+            action="/login/"
+            method="POST"
+            enctype="application/json"
+          >
+            {% csrf_token %}
             <div class="row">
+              {% include 'messages.html' %}
               <div class="col-xl-12">
                 <div class="tf__blog_form_input tf__contact_form_input">
                   <label>Email or Username (required)</label>
-                  <input type="text" placeholder="Enter Email or Username" />
+                  <input
+                    type="email"
+                    name="email_address"
+                    placeholder="Enter Email or Username"
+                  />
                 </div>
               </div>
               <div class="col-xl-12">
                 <div class="tf__blog_form_input tf__contact_form_input">
                   <label>Password (required)</label>
-                  <input type="password" placeholder="Enter Password" />
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter Password"
+                  />
                 </div>
               </div>
               <div class="col-xl-12">
@@ -54,7 +69,7 @@
               </div>
               <div class="col-xl-12">
                 <div class="tf__blog_form_input tf__contact_form_input">
-                  <button class="tf__common_btn w-100">
+                  <button type="submit" class="tf__common_btn w-100">
                     Sign in with Contis.ai
                     <i
                       class="fa-regular fa-arrow-right-long"
